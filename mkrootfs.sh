@@ -8,7 +8,7 @@ sudo fallocate -l 20G rootfs.img
 sudo losetup -f -P rootfs.img
 
 # Build the goddamn image
-sudo pacman -S --noconfirm btrfs-utils
+sudo pacman -S --noconfirm btrfs-progs
 mkdir /tmp/rootfs_install
 HOLO_INSTALL_DIR="${HOLO_INSTALL_DIR:-/tmp/rootfs_install}"
 sudo mkfs -t btrfs /dev/loop3
