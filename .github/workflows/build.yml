@@ -1,0 +1,27 @@
+name: Build rootfs image
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: thevakhovske/holoiso:latest
+      options: --privileged
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Prepare pacman keyring
+        run: |
+          pacman-key --init
+          pacman --noconfirm -S arch-install-scripts base-devel fakeroot dos2unix wget
+          chown -R builder:builder .
+          
+      - name: Build rootfs image
+        run: |
+          su -s /bin/bash builder -c "./mkrootfs.sh"
+          
+      - name: Upload rootfs into temporary directory
+        run: |
+          echo "WIP"
