@@ -17,6 +17,7 @@ jobs:
           pacman-key --init
           pacman --noconfirm -S arch-install-scripts base-devel fakeroot dos2unix wget
           chown -R builder:builder .
+          chmod +x mkrootfs.sh
           
       - name: Build rootfs image
         run: |
