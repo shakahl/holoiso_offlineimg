@@ -22,7 +22,3 @@ jobs:
       - name: Build rootfs image
         run: |
           su -s /bin/bash builder -c "./mkrootfs.sh"
-          
-      - name: Upload rootfs into temporary directory
-        run: |
-          echo "WIP"
