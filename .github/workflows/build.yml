@@ -15,7 +15,7 @@ jobs:
       - name: Prepare pacman keyring
         run: |
           pacman-key --init
-          pacman --noconfirm -S arch-install-scripts base-devel fakeroot dos2unix wget zsh
+          pacman --noconfirm -S arch-install-scripts base-devel fakeroot dos2unix wget zsh util-linux
           chown -R builder:builder .
           chmod +x mkrootfs.sh
           

@@ -2,7 +2,7 @@
 ## HoloISO rootfs generator
 
 # Start by allocating a RAW disk file
-truncate -c -s 20G rootfs.img
+sudo fallocate -l 20G rootfs.img
 
 # Mount it
 sudo losetup -f -P rootfs.img
